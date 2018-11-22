@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="re_name",
-    version="0.0.3",
+    version="0.0.7",
     author="George Guo",
     author_email="geforcesong@gmail.com",
     description="A small example package",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/geforcesong/re_name",
-    scripts=['bin/re_name.py'],
+    scripts=['bin/re_name'],
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
