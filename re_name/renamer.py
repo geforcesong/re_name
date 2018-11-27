@@ -6,8 +6,8 @@ import re
 class Renamer:
 
     def __init__(self):
-        # self.currentPath = os.getcwd()
-        self.currentPath = '/Users/george/lll/'
+        self.currentPath = os.getcwd()
+        # self.currentPath = '/Users/george/lll/'
         self.oldPatten = ''
         self.newPatten = ''
         self.isPreview = False
