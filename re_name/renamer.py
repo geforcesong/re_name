@@ -10,7 +10,7 @@ class Renamer:
         self.oldPatten = ''
         self.newPatten = ''
         self.isPreview = False
-        # self.parseInputs()
+        self.parseInputs()
         print('Working Path:' + self.currentPath)
 
     def update(self):
@@ -23,9 +23,8 @@ class Renamer:
 
     def parseInputs(self):
         parser = argparse.ArgumentParser()
-        parser.add_argument("-o", "--old", help="specify old patten")
-        parser.add_argument(
-            "-n", "--new", help="specify new patten to replace")
+        parser.add_argument("old", help="specify old patten to remove")
+        parser.add_argument("new", help="specify new patten you wanted")
         parser.add_argument("-p", "--preview", action="store_true",
                             help="This will show what the result will be.", default=False)
         args = parser.parse_args()
@@ -34,6 +33,7 @@ class Renamer:
         if(args.new):
             self.newPatten = args.new.strip()
         self.isPreview = args.preview
-        if(self.oldPatten == "" or self.newPatten == ""):
-            print("You haven't spcify valid parameters, use --help for usage")
-            os._exit(1)
+        print(self.oldPatten, self.newPatten)
+        # if(self.oldPatten == "" or self.newPatten == ""):
+        #     print("You haven't spcify valid parameters, use --help for usage")
+        #     os._exit(1)
