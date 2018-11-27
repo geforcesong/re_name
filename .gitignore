@@ -4,3 +4,4 @@ dist
 __pycache__
 re_name.egg-info
 build
+*.pyc
