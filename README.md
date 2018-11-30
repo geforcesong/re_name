@@ -10,10 +10,10 @@ This is a tool that you can update file names in batch
     --ext        Specify the file types you want to update
     -s --suffix  Will append suffix. # stands for the sequence for file list
 
-#### re_name -p '\-\d' ""
+#### re_name -f '\-\d' ""
     hello1-1.txt  ---->  hello1.txt
 
-#### re_name 55 ll -s "#"
+#### re_name -f 55 ll -s "#"
     he55o1.txt  ---->  hello1-1.txt
     he55o2.txt  ---->  hello2-2.txt
     he55o3.txt  ---->  hello3-3.txt
