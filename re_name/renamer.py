@@ -10,7 +10,7 @@ class Renamer:
         # self.currentPath = '/Users/george/lll/'
         self.oldPatten = ''
         self.newPatten = ''
-        self.isPreview = False
+        self.updateFile = False
         self.extension = ''
         self.suffix = ''
         self.parser = argparse.ArgumentParser()
@@ -23,6 +23,8 @@ class Renamer:
         if len(files) > 0 and self.extension:
             files = list(filter(lambda x: x.endswith(self.extension), files))
         totalFiles = len(files)
+        if not self.updateFile:
+            print('This is the preview for you to review the update....')
         print('\nTotal {0} files will be updated.\n'.format(totalFiles))
         index = 0
         if(totalFiles > 0):
@@ -41,7 +43,7 @@ class Renamer:
                     else:
                         newfileName = newfileName + toAppend
 
-                if not self.isPreview:
+                if self.updateFile:
                     os.rename(os.path.join(self.currentPath, file),
                               os.path.join(self.currentPath, newfileName))
                 print(file, ' ----> ', newfileName)
@@ -51,8 +53,8 @@ class Renamer:
         parser.add_argument("new", help="specify new patten you wanted")
         parser.add_argument(
             "--ext", help="This will filter out files with other extentions")
-        parser.add_argument("-p", "--preview", action="store_true",
-                            help="This will show what the result will be.", default=False)
+        parser.add_argument("-f", "--file", action="store_true",
+                            help="This will make changes on file(s).", default=False)
         parser.add_argument(
             "-s", "--suffix", help="Will append suffix. # stands for the sequence for file list")
         args = parser.parse_args()
@@ -62,7 +64,7 @@ class Renamer:
             self.newPatten = args.new.strip()
         if args.suffix:
             self.suffix = args.suffix.strip()
-        self.isPreview = args.preview
+        self.updateFile = args.file
         if(args.ext):
             self.extension = '.' + args.ext.strip().strip('.')
         # if(self.oldPatten == "" or self.newPatten == ""):

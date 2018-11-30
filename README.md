@@ -6,7 +6,7 @@ This is a tool that you can update file names in batch
 
 #### optional parameters
 
-    -p --preview This will not update file name, give a chance to review your changes
+    -f --file This will make changes on file(s), you can only review the changes without this
     --ext        Specify the file types you want to update
     -s --suffix  Will append suffix. # stands for the sequence for file list
 
