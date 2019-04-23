@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="re_name",
-    version="0.0.22",
+    version="0.0.23",
     author="George Guo",
     author_email="geforcesong@gmail.com",
     description="A small example package",

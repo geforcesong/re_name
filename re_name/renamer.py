@@ -7,7 +7,7 @@ class Renamer:
 
     def __init__(self):
         self.currentPath = os.getcwd()
-        self.currentPath = '/Users/george/Downloads/五千年起源/'
+        # self.currentPath = '/Users/xxxx/Downloads/'
         self.oldPatten = ''
         self.newPatten = ''
         self.updateFile = False
