@@ -17,3 +17,8 @@ This is a tool that you can update file names in batch
     he55o1.txt  ---->  hello1-1.txt
     he55o2.txt  ---->  hello2-2.txt
     he55o3.txt  ---->  hello3-3.txt
+
+#### re_name -f "55" "ll" --prenum
+    he55o1.txt  ---->  001_hello1-1.txt
+#### re_name -f "55" "ll" --prenum 5
+    he55o1.txt  ---->  00001_hello1-1.txt

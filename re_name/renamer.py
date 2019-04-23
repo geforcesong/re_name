@@ -7,12 +7,13 @@ class Renamer:
 
     def __init__(self):
         self.currentPath = os.getcwd()
-        # self.currentPath = '/Users/george/lll/'
+        self.currentPath = '/Users/george/Downloads/五千年起源/'
         self.oldPatten = ''
         self.newPatten = ''
         self.updateFile = False
         self.extension = ''
         self.suffix = ''
+        self.prenum = 0
         self.parser = argparse.ArgumentParser()
         self.parseInputs(self.parser)
         print('Working Path:' + self.currentPath)
@@ -42,6 +43,11 @@ class Renamer:
                             newfileName[0:extPos], toAppend, newfileName[extPos:len(newfileName)])
                     else:
                         newfileName = newfileName + toAppend
+                
+                if self.prenum > 0:
+                    nums = re.findall("\d+", newfileName)
+                    prenum = nums[0] if len(nums) > 0 else ''
+                    newfileName = prenum.rjust(self.prenum, '0') + '_' + newfileName
 
                 if self.updateFile:
                     os.rename(os.path.join(self.currentPath, file),
@@ -57,6 +63,8 @@ class Renamer:
                             help="This will make changes on file(s).", default=False)
         parser.add_argument(
             "-s", "--suffix", help="Will append suffix. # stands for the sequence for file list")
+        parser.add_argument(
+            "--prenum", help="Will extract num from file name and prefix the file name. defaut is 3 digit", nargs='?', const=3, type=int)
         args = parser.parse_args()
         if(args.old):
             self.oldPatten = args.old.strip()
@@ -64,6 +72,9 @@ class Renamer:
             self.newPatten = args.new.strip()
         if args.suffix:
             self.suffix = args.suffix.strip()
+
+        if args.prenum:
+            self.prenum = args.prenum
         self.updateFile = args.file
         if(args.ext):
             self.extension = '.' + args.ext.strip().strip('.')
