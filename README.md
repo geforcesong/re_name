@@ -7,8 +7,9 @@ This is a tool that you can update file names in batch
 #### optional parameters
 
     -f --file This will make changes on file(s), you can only review the changes without this
-    --ext        Specify the file types you want to update
+    --ext        Specify the file types you want to update, by defult it will update all files in current folder
     -s --suffix  Will append suffix. # stands for the sequence for file list
+    --prenum [n] extract the number and prefix it on name. [n] is digits, default 3
 
 #### re_name -f '\-\d' ""
     hello1-1.txt  ---->  hello1.txt
